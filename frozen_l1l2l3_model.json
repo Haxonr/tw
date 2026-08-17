@@ -1,0 +1,54 @@
+{
+  "model_version": "1.0.0",
+  "feature_version": 1,
+  "model_type": "logistic_regression",
+
+  "training_period": "2023-2024",
+  "oos_period": "2025",
+  "untouched_period": "2026",
+
+  "l3_target": {
+    "name": "MAE >= 1R within 20 M5 bars",
+    "base_rate": 0.545,
+    "year_stability_std_pp": 1.3
+  },
+
+  "features": [
+    "vel1", "vel3", "vel5", "vel10", "vel20", "vel_acc",
+    "rsi_14", "bb_position", "bb_width", "atr", "atr_ratio",
+    "l2_m15_bin", "l2_m5_bin", "l2_state_id",
+    "hour_sin", "hour_cos"
+  ],
+
+  "coefficients": [
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0,
+    0.0, 0.0
+  ],
+  "intercept": 0.0,
+  "threshold": 0.55,
+
+  "l2_thresholds": {
+    "m15_vel5_q33": -0.0005,
+    "m15_vel5_q66":  0.0005,
+    "m5_vel1_q33":  -0.0002,
+    "m5_vel1_q66":   0.0002
+  },
+
+  "execution": {
+    "tp_r": 2.0,
+    "sl_r": 1.0,
+    "max_hold_bars": 40
+  },
+
+  "metrics": {
+    "training_auc": null,
+    "oos_auc": null,
+    "trades_per_day_per_pair": null,
+    "win_rate": null,
+    "profit_factor": null
+  },
+
+  "notes": "Replace coefficients with your trained model. Do not modify thresholds without retraining and versioning."
+}
